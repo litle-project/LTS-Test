@@ -13,7 +13,6 @@ const port = process.env.APP_PORT || 6000;
 // routes load
 const route = require('./src/routes');
 
-
 application.use(bodyParser.urlencoded({ extended: true }));
 application.use(bodyParser.text({ defaultCharset: 'utf-8' }));
 application.use(bodyParser.json({ limit: '500mb', type: 'application/json' }));
@@ -25,7 +24,6 @@ application.use('/api/v1', route);
 
 application.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/web', 'index.html'));
-  // res.sendFile(path.join(__dirname, 'public/images'));
 });
 
 application.use(express.static(path.join(__dirname, 'public')));
