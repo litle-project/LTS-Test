@@ -16,14 +16,19 @@ const route = require('./src/routes');
 
 application.use(bodyParser.urlencoded({ extended: true }));
 application.use(bodyParser.text({ defaultCharset: 'utf-8' }));
-// application.use(bodyParser.json({ limit: '500mb', type: 'application/json' }));
-application.use(bodyParser.json({ limit: 1024102420, type: 'application/json' }));
+application.use(bodyParser.json({ limit: '500mb', type: 'application/json' }));
+// application.use(bodyParser.json({ limit: 1024102420, type: 'application/json' }));
 application.use(express.json({ type: ['text/*', '*/json'] }));
 application.listen(port);
 
 application.use('/api/v1', route);
 
-application.use(express.static(path.join(__dirname)));
+application.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/web', 'index.html'));
+  // res.sendFile(path.join(__dirname, 'public/images'));
+});
+
+application.use(express.static(path.join(__dirname, 'public')));
 application.use(errorHandler);
 
 // eslint-disable-next-line no-console

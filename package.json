@@ -32,10 +32,11 @@
     "husky": "^3.1.0",
     "joi": "^17.6.0",
     "nodemon": "^2.0.16",
+    "open": "^10.1.0",
     "path": "^0.12.7",
     "pg": "^8.9.0",
-    "redis": "^4.1.0",
     "pg-hstore": "^2.3.4",
+    "redis": "^4.1.0",
     "sequelize": "^6.20.1"
   },
   "devDependencies": {
