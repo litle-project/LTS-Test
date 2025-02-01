@@ -106,6 +106,9 @@
       const storage = localStorage.setItem('msg', newMessage);
 
       read();
+
+      key.value = '';
+      msg.value = '';
     }
 
     const read = () => {
